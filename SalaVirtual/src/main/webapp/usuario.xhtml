@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+ <title>Cadastrar Usuario</title>
+</h:head>
+
+ <h:body>
+  <h:form>
+   <h:outputLabel value="Cadastrar um Usuario"/>
+   <hr/>
+   <h:outputLabel value="Nome: "/>
+   <h:inputText value="#{usuarioMB.nome}" ></h:inputText><br/>
+   <h:outputLabel value="CPF: "/>
+   <h:inputText value="#{usuarioMB.cpf}" ></h:inputText>   <br/>
+   <h:outputLabel value="Idade: "/>
+   <h:inputText value="#{usuarioMB.idade}" ></h:inputText><br/>
+   
+   <h:commandButton action="#{usuarioMB.inserirUsuario}" value="Adicionar"/><br/>
+  <br/>
+  <h:dataTable value="#{usuarioMB.buscarUsuarios()}" var="usuario" border="2"
+			cellspacing="1" cellpadding="1">
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+                #{usuario.nome}
+            </h:column>
+			<h:column>
+				<f:facet name="header">CPF</f:facet>
+                #{usuario.cpf}
+            </h:column>
+			<h:column>
+				<f:facet name="header">Idade</f:facet>
+                #{usuario.idade}
+            </h:column>
+		</h:dataTable>
+   
+  </h:form>
+ </h:body>
+ </html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<link rel="StyleSheet" type="text/css" href="css/estilos.css"
+	media="screen" />
+
+<h:head>
+	<title>Turma - Stateful</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<h:outputLabel value="Cadastro Turma Stateful" />
+		<hr />
+		<h:outputLabel value="Nome da Turma:" />
+		<h:inputText value="#{turmaMB.nome}" />
+		<h:outputLabel value="Disciplina da Turma:" />
+		<h:inputText value="#{turmaMB.disciplina}" />
+		<!--<h:outputLabel value="Selecione o Professor:" />
+		<h:selectOneMenu>
+			<f:selectItems value="#{turmaMB.listarProfessores}" var="opcao" itemValue="#{opcao.nome}"
+                   itemLabel="#{opcao.nome}" />
+		</h:selectOneMenu>
+		<h:outputLabel value="Selecione o Professor:" />
+		<h:selectOneMenu>
+			<f:selectItems value="#{turmaMB.listarSalas()}" var="opcao" itemValue="#{opcao.nome}"
+                   itemLabel="#{opcao.nome}" />
+		</h:selectOneMenu>
+		-->
+		<br />
+		<h:commandButton action="#{turmaMB.criarTurma}" value="Incluir" />
+		<br />
+		<br />
+		<h:outputLabel value="Lista de Professores" />
+		<hr />
+		<h:dataTable value="#{professorMB.buscarProfessores}" var="p"
+			border="1">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Nome do Professor" />
+				</f:facet>
+				<h:outputText value="#{p.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Matrícula" />
+				</f:facet>
+				<h:outputText value="#{p.matricula}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Departamento" />
+				</f:facet>
+				<h:outputText value="#{p.departamento}" />
+			</h:column>
+		</h:dataTable>
+		<br />
+
+		<h:outputLabel value="Turmas Cadastradas" />
+		<hr />
+		<h:dataTable value="#{turmaMB.listarTurma()}" var="a" border="1">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Id da Turma" />
+				</f:facet>
+				<h:outputText value="#{a.id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Nome da Turma" />
+				</f:facet>
+				<h:outputText value="#{a.nome}" />
+			</h:column>
+			<!-- <h:column>
+				<f:facet name="header" >
+                     <h:outputText value="Professor"/>
+              </f:facet>
+               <h:outputText value="#{a.nomeProfessor}"/>
+			</h:column> -->
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Disciplina" />
+				</f:facet>
+				<h:outputText value="#{a.disciplina}" />
+			</h:column>
+			<!-- <h:column>
+				<f:facet name="header" >
+                     <h:outputText value="Sala"/>
+              </f:facet>
+               <h:outputText value="#{a.nomeSala}"/>
+			</h:column> -->
+		</h:dataTable>
+		<h:outputLabel value="Menu Turma " />
+		<h:commandButton action="turma.xhtml" value="Voltar" />
+		<br />
+		<h:outputLabel value="Pagina Inicial" />
+		<h:commandButton action="index.xhtml" value="Home" />
+		<br />
+	</h:form>
+</h:body>
+</html>

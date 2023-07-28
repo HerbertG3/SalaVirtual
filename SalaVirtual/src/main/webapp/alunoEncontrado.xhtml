@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<link rel="StyleSheet" type="text/css" href="css/estilos.css"
+	media="screen" />
+
+<h:head>
+	<title>Aluno - Stateful</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<h:outputLabel value="Buscar Alunos Stateful" />
+		<hr />
+		<br/>
+		
+		<h:dataTable value="#{alunoMB.alunoEncontrado}" var="a" border="1">
+			<h:column>
+				<f:facet name="header" >
+                     <h:outputText value="Nome do Aluno"/>
+              </f:facet>
+               <h:outputText value="#{a.nome}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header" >
+                     <h:outputText value="CPF"/>
+              </f:facet>
+               <h:outputText value="#{a.cpf}"/>
+			</h:column>
+			
+			
+			<h:column>
+				<f:facet name="header" >
+				<h:outputText value="Atualizar Dados"/>
+              </f:facet>
+              <h:commandLink action="atualizaAluno.xhtml" value="Atualizar">
+               <f:setPropertyActionListener value="#{call}"
+                                target="#{alunoMB.alunoSelecionado}">
+                                </f:setPropertyActionListener>
+               </h:commandLink>
+			</h:column>
+		</h:dataTable>
+		<br />
+		<h:outputLabel value="Menu Aluno " />
+		<h:commandButton action="aluno.xhtml" value="Voltar" />
+		<br />
+		<h:outputLabel value="Pagina Inicial " />
+		<h:commandButton action="index.xhtml" value="Home" />
+		<br />
+		
+	</h:form>
+</h:body>
+</html>

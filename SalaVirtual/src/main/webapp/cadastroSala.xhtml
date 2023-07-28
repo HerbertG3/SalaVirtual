@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<link rel="StyleSheet" type="text/css" href="css/estilos.css"
+	media="screen" />
+
+<h:head>
+	<title>Sala de Aula - Stateful</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<h:outputLabel value="Cadastro Sala Stateful" />
+		<hr />
+		<h:outputLabel value="Codigo da Sala:" />
+		<h:inputText value="#{salaMB.codigo}" />
+		<h:outputLabel value="Nome da Sala:" />
+		<h:inputText value="#{salaMB.nome}" />
+		<h:outputLabel value="Local da Sala:" />
+		<h:inputText value="#{salaMB.local}" />
+		<h:commandButton action="#{salaMB.criarSala}" value="Incluir" />
+		<br />
+		<h:outputLabel value="Salas Cadastradas" />
+		<hr />
+		<h:dataTable value="#{salaMB.salas}" var="s" border="1">
+		<h:column>
+				<f:facet name="header">
+					<h:outputText value="Código" />
+				</f:facet>
+				<h:outputText value="#{s.codigo}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Nome" />
+				</f:facet>
+				<h:outputText value="#{s.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Local" />
+				</f:facet>
+				<h:outputText value="#{s.local}" />
+			</h:column>
+		</h:dataTable>
+		<br />
+		<h:outputLabel value="Menu Sala " />
+		<h:commandButton action="sala.xhtml" value="Voltar" />
+		<br />
+		<h:outputLabel value="Pagina Inicial" />
+		<h:commandButton action="index.xhtml" value="Home" />
+		<br />
+	</h:form>
+</h:body>
+</html>

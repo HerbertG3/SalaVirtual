@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<link rel="StyleSheet" type="text/css" href="css/estilos.css"
+	media="screen" />
+
+<h:head>
+	<title>Professor - Stateful</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<h:outputLabel value="Atualizar Professor Stateful" />
+		<hr />
+		<h:outputLabel value="Nome do Professor:" />
+		<h:inputText value="#{professorMB.nome}" />
+		<br />
+		<h:outputLabel value="CPF do Professor:" />
+		<h:inputText value="#{professorMB.cpf}" />
+		<br />
+		<h:commandButton action="#{professorMB.atualizarProfessor}" value="Atualizar" />
+		<br />
+		<h:outputLabel value="Lista de Professores" />
+		<hr />
+		<h:dataTable value="#{professorMB.professorSelecionado}" var="a" border="1">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Nome do Professor" />
+				</f:facet>
+				<h:outputText value="#{professorMB.professorSelecionado.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="CPF" />
+				</f:facet>
+				<h:outputText value="#{a.cpf}" />
+			</h:column>
+		</h:dataTable>
+		<br />
+		<h:outputLabel value="Menu Professor " />
+		<h:commandButton action="professor.xhtml" value="Voltar" />
+		<br />
+		<h:outputLabel value="Pagina Inicial " />
+		<h:commandButton action="index.xhtml" value="Home" />
+		<br />
+	</h:form>
+</h:body>
+</html>

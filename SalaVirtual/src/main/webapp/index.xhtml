@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:h="http://java.sun.com/jsf/html">
+<link rel="StyleSheet" type="text/css" href="css/estilos.css"
+	media="screen" />
+<h:head>
+ <title>Sala de Aula Virtual - Stateless</title>
+</h:head>
+
+ <h:body>
+  <h:form>
+   <h:outputLabel value="Sala de Aula Virtual utilizando um bean Stateless"/>
+   <hr/>
+   <br />
+		<h:outputLabel value="Menu" />
+		<br/>
+		<h:commandButton action="aluno.xhtml" value="Menu Aluno" />
+		<br />
+		<h:commandButton action="professor.xhtml" value="Menu Professor" />
+		<br />
+		<h:commandButton action="sala.xhtml" value="Menu Sala" />
+		<br />
+		<h:commandButton action="turma.xhtml" value="Menu Turma" />
+		<br />
+		<!-- <h:commandButton action="usuario.xhtml" value="Menu Usuario" />-->
+		<br />
+		<h:commandButton action="gestao.xhtml" value="Menu Gestão" />
+		<br />
+  </h:form>
+ </h:body>
+ </html>

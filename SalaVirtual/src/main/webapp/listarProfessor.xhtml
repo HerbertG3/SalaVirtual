@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<link rel="StyleSheet" type="text/css" href="css/estilos.css"
+	media="screen" />
+
+<h:head>
+	<title>Professor - Stateful</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<h:outputLabel value="Professores Cadastrados Stateful" />
+		<hr />
+		<br/>
+		<h:outputLabel value="Lista de Professores" />
+		<hr />
+		<h:dataTable value="#{professorMB.buscarProfessores}" var="p" border="1">
+			<h:column>
+				<f:facet name="header" >
+                     <h:outputText value="Nome do Professor"/>
+              </f:facet>
+               <h:outputText value="#{p.nome}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header" >
+                     <h:outputText value="CPF"/>
+              </f:facet>
+               <h:outputText value="#{p.cpf}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header" >
+                     <h:outputText value="Matrícula"/>
+              </f:facet>
+               <h:outputText value="#{p.matricula}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header" >
+				<h:outputText value="Detalhes"/>
+              </f:facet>
+              <h:commandLink action="detalhesProfessor.xhtml" value="Visualizar">
+					<f:setPropertyActionListener value="#{call}"
+						target="#{professorMB.professorSelecionado}">
+					</f:setPropertyActionListener>
+				</h:commandLink>
+			</h:column>
+			<h:column>
+				<f:facet name="header" >
+				<h:outputText value="Atualizar Dados"/>
+              </f:facet>
+              <h:commandLink action="atualizaProfessor.xhtml" value="Atualizar">
+					<f:setPropertyActionListener value="#{call}"
+						target="#{professorMB.professorSelecionado}">
+					</f:setPropertyActionListener>
+				</h:commandLink>
+			</h:column>
+			<h:column>
+				<f:facet name="header" >
+				<h:outputText value="Excluir"/>
+              </f:facet>
+              <h:commandLink action="#{professorMB.excluirProfessor(p)}" value="Excluir">
+					<f:setPropertyActionListener value="#{call}"
+						target="#{professorMB.professorSelecionado}">
+					</f:setPropertyActionListener>
+				</h:commandLink>
+			</h:column>
+		</h:dataTable>
+		<br />
+		<h:outputLabel value="Menu Professor " />
+		<h:commandButton action="professor.xhtml" value="Voltar" />
+		<br />
+		<h:outputLabel value="Pagina Inicial " />
+		<h:commandButton action="index.xhtml" value="Home" />
+		<br />
+		
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,70 @@
+@charset "ISO-8859-1";
+*{
+
+    /*Define  que todos os elementos da página, ficarão em negrito e com a fonte arial */
+
+    font-weight: bold;
+
+    font-family: arial;
+
+    /*Define a tamanho da fonte para todos os elementos */
+
+    font-size: 12px;
+
+}
+
+legend{
+
+    /*Define a tamanho da fonte para a legenda do FieldSet */
+
+    font-size: 12px
+
+}
+
+
+table {
+    margin: left;
+    width: calc(100%);
+}
+
+tbody{
+	background-color: #899da5;
+}
+th{
+	background-color: white;
+}
+
+tr:nth-child(2n){
+    background-color: #c0c0c0;
+}
+
+form {
+    display: inline-block;
+    width: 480px;
+}
+
+legend{
+    text-align:left;
+}
+
+form,
+label {
+  display: block;
+  padding: 10px;
+  padding-right: 100px;
+  
+}
+form {
+  width: auto 0;
+  margin: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+label {
+  color: #FFF;
+  text-align: left;
+}
+input {
+  display: inline-block;
+  padding-left: 10px;
+}
